@@ -6,8 +6,6 @@ export const EntryContext = createContext<EntryContextType | null>(null);
 
 export const EntryProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [entries, setEntries] = useState<Entry[]>([]);
-  const [theme, setTheme] = useState(localStorage.theme);
-  const colorTheme = theme === "dark" ? "light" : "dark";
 
   const initState = async () => {
     const data = await axios.get<Entry[]>("http://localhost:3001/get/");
@@ -16,12 +14,8 @@ export const EntryProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   };
 
   useEffect(() => {
-    const root = window.document.documentElement;
-    root.classList.remove(colorTheme);
-    root.classList.add(theme);
-    localStorage.setItem("theme", theme);
     initState();
-  }, [colorTheme, setTheme]);
+  }, []);
 
   const saveEntry = async (entry: Entry) => {
     const requestData = await axios.post<Entry>("http://localhost:3001/create/", entry);
