@@ -11,6 +11,6 @@ export type EntryContextType = {
   deleteEntry: (id: string) => void;
 };
 export type ThemeContextType = {
-  setTheme: (theme: 'light' | 'dark') => void;
-  theme: 'light' | 'dark'
-}
+  setTheme: (theme: "light" | "dark") => void;
+  theme: "light" | "dark";
+};
