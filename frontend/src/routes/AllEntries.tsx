@@ -51,8 +51,11 @@ export default function AllEntries() {
                   🖊
                 </button>
               </div>
-              <time className="text-right text-sm md:text-lg dark:text-white">
-                {new Date(entry.created_at.toString()).toLocaleDateString()}
+              <time className="text-right text-sm dark:text-white">
+                Created: {new Date(entry.created_at.toString()).toLocaleDateString()}
+              </time>
+              <time className="text-right text-sm dark:text-white">
+                Scheduled At: {new Date(entry.scheduled_at.toString()).toLocaleDateString()}
               </time>
             </section>
           </div>
