@@ -9,11 +9,14 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import { ThemeProvider } from "./utilities/themeContext";
 
 export default function App() {
   return (
+    <div className="w-screen h-screen dark:bg-gray-900">
     <section>
   <Router>
+    <ThemeProvider>
     <EntryProvider>
     <NavBar></NavBar>
       <Routes>
@@ -25,8 +28,10 @@ export default function App() {
         </Route>
       </Routes>
     </EntryProvider>
+    </ThemeProvider>
     </Router>
     </section>
+    </div>
     
   );
 }

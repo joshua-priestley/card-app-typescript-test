@@ -10,3 +10,7 @@ export type EntryContextType = {
   updateEntry: (id: string, entryData: Entry) => void;
   deleteEntry: (id: string) => void;
 };
+export type ThemeContextType = {
+  setTheme: (theme: 'light' | 'dark') => void;
+  theme: 'light' | 'dark'
+}
